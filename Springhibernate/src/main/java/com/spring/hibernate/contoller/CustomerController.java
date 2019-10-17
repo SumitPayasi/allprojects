@@ -40,5 +40,10 @@ public class CustomerController {
 		List<Customer> rules=customerService.retrivefromDb();
 		return rules;
 	}
-
+	
+	@GetMapping(path="/test")
+	@ResponseBody
+	public String Display() {
+		return "Hello World";
+	}
 }
