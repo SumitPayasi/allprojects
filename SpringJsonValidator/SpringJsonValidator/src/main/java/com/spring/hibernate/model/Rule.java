@@ -10,27 +10,30 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 @Entity
 @Table(name = "Rule")
 public class Rule {
 
 	@Id
-	private int ID;
+	@JsonProperty("ID")
+	private int id;
+	@JsonProperty("parentID")
 	private int parentId;
 	private int level;
 	private String rule;
 	private String fieldName;
-	
 	@OneToMany(fetch = FetchType.EAGER,cascade= {CascadeType.ALL})
-	@JoinColumn(name="rule_id")
-	private List<ListofRules> listofrules;
+	@JoinColumn(name="id")
+	private List<ListofRules> allRule;
 
-	public int getID() {
-		return ID;
+	public int getId() {
+		return id;
 	}
 
-	public void setID(int iD) {
-		ID = iD;
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public int getParentId() {
@@ -65,14 +68,12 @@ public class Rule {
 		this.fieldName = fieldName;
 	}
 
-	public List<ListofRules> getListofrules() {
-		return listofrules;
+	public List<ListofRules> getAllRule() {
+		return allRule;
 	}
 
-	public void setListofrules(List<ListofRules> listofrules) {
-		this.listofrules = listofrules;
+	public void setAllRule(List<ListofRules> allRule) {
+		this.allRule = allRule;
 	}
-	
-	
 	
 }
