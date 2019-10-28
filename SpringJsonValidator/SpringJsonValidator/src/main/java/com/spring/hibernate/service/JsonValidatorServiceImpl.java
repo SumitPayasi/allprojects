@@ -11,7 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.spring.hibernate.controller.ValidatorController;
 import com.spring.hibernate.dao.JsonValidatorDAO;
 import com.spring.hibernate.model.Rule;
 
@@ -29,21 +28,19 @@ public class JsonValidatorServiceImpl implements JsonValidatorService {
 	@Transactional
 	public void saveRule(Rule rule) {
 		
-		/*
-		 * deleteAll(); Log.debug("deleted all row"); Log.debug("calling post method");
-		 */
- 
 		Log.info("Insode JsonValidatorServiceImpl class saveRule()");
 		Log.info("saving Request data into db :{}",rule);
 		jsonValidatorDAO.saveRule(rule);
 		Log.info("Exiting saveRule()");
 	}
 
+	
 	/*
 	 * public void deleteAll() {
 	 * 
 	 * jsonValidatorDAO.deleteAll(); }
 	 */
+	 
 
 	@Override
 	public List<Rule> retrivefromDb() {

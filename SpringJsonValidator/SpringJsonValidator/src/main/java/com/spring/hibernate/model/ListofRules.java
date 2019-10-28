@@ -48,7 +48,7 @@ public class ListofRules {
 	@JsonProperty("targetValue")
 	private String targetValue1;
 	
-	@OneToMany(fetch = FetchType.EAGER,cascade= {CascadeType.ALL})
+	@OneToMany(fetch = FetchType.EAGER,cascade= CascadeType.ALL)
 	@JoinColumn(name="LOR_id")
 	@JsonInclude(JsonInclude.Include.NON_EMPTY)
 	private List<Choice> choice;

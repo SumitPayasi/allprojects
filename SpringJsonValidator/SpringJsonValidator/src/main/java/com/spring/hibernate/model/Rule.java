@@ -26,8 +26,8 @@ public class Rule {
 	private int level;
 	private String rule;
 	private String fieldName;
-	@OneToMany(fetch = FetchType.EAGER,cascade= {CascadeType.ALL})
-	@JoinColumn(name="id")
+	@OneToMany(fetch = FetchType.EAGER,cascade= CascadeType.ALL)
+	@JoinColumn(name="Rule_id")
 	@JsonInclude(JsonInclude.Include.NON_EMPTY)
 	private List<ListofRules> allRule;
 	
