@@ -1,6 +1,7 @@
 com\spring\hibernate\dao\JsonValidatorDAO.class
 com\spring\hibernate\model\ListofRules.class
 com\spring\hibernate\service\JsonValidatorServiceImpl.class
+com\spring\hibernate\dao\AbstractDao.class
 com\spring\hibernate\model\Rule.class
 com\spring\hibernate\service\JsonValidatorService.class
 com\spring\hibernate\config\SpringConfig.class

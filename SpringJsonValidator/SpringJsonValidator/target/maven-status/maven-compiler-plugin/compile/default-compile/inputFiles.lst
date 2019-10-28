@@ -10,5 +10,6 @@ D:\codebase\allProjects\allprojects\SpringJsonValidator\SpringJsonValidator\src\
 D:\codebase\allProjects\allprojects\SpringJsonValidator\SpringJsonValidator\src\main\java\com\spring\hibernate\dao\JsonValidatorDAOImpl.java
 D:\codebase\allProjects\allprojects\SpringJsonValidator\SpringJsonValidator\src\main\java\com\spring\hibernate\model\Choice.java
 D:\codebase\allProjects\allprojects\SpringJsonValidator\SpringJsonValidator\src\main\java\com\spring\hibernate\controller\ValidatorController.java
+D:\codebase\allProjects\allprojects\SpringJsonValidator\SpringJsonValidator\src\main\java\com\spring\hibernate\dao\AbstractDao.java
 D:\codebase\allProjects\allprojects\SpringJsonValidator\SpringJsonValidator\src\main\java\com\spring\hibernate\dao\JsonValidatorDAO.java
 D:\codebase\allProjects\allprojects\SpringJsonValidator\SpringJsonValidator\src\main\java\com\spring\hibernate\service\JsonValidatorServiceImpl.java
