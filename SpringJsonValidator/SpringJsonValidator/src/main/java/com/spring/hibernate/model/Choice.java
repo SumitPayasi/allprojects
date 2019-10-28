@@ -6,10 +6,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 @Entity
 @Table(name="Choice")
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class Choice {
 	
 	@Id
@@ -33,6 +35,10 @@ public class Choice {
 	}
 	public Choice() {
 		super();
+	}
+	@Override
+	public String toString() {
+		return "Choice [choiceId=" + choiceId + ", key1=" + key1 + ", value1=" + value1 + "]";
 	}
 
 

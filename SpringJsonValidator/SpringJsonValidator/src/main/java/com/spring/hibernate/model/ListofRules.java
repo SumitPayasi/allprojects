@@ -1,5 +1,6 @@
 package com.spring.hibernate.model;
 
+import java.util.Arrays;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -12,10 +13,12 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 @Entity
 @Table(name = "Allrule")
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class ListofRules {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -47,21 +50,73 @@ public class ListofRules {
 	
 	@OneToMany(fetch = FetchType.EAGER,cascade= {CascadeType.ALL})
 	@JoinColumn(name="LOR_id")
+	@JsonInclude(JsonInclude.Include.NON_EMPTY)
 	private List<Choice> choice;
+	@JsonInclude(JsonInclude.Include.NON_EMPTY)
 	private String[] plusField1;
+	@JsonInclude(JsonInclude.Include.NON_EMPTY)
     private String[] targetField1; 
-	private String[] miusField;
+	@JsonInclude(JsonInclude.Include.NON_EMPTY)
+	private String[] minusField;
+	@JsonInclude(JsonInclude.Include.NON_EMPTY)
 	private String[] minusField1;
+	@JsonInclude(JsonInclude.Include.NON_EMPTY)
 	private String[] plusField;
-	 
+	private boolean inActive;
+	@JsonInclude(JsonInclude.Include.NON_EMPTY)
+	private String[] fieldStringTarget;
+	private String operatorStringCompare;
+	private String requiredFieldType;
+	private String[] requiredFieldChild;
+	
+	
+	
+	public String getRequiredFieldType() {
+		return requiredFieldType;
+	}
 
+	public void setRequiredFieldType(String requiredFieldType) {
+		this.requiredFieldType = requiredFieldType;
+	}
 
-	public String[] getMiusField1() {
+	public String[] getRequiredFieldChild() {
+		return requiredFieldChild;
+	}
+
+	public void setRequiredFieldChild(String[] requiredFieldChild) {
+		this.requiredFieldChild = requiredFieldChild;
+	}
+
+	public String[] getFieldStringTarget() {
+		return fieldStringTarget;
+	}
+
+	public void setFieldStringTarget(String[] fieldStringTarget) {
+		this.fieldStringTarget = fieldStringTarget;
+	}
+
+	public String getOperatorStringCompare() {
+		return operatorStringCompare;
+	}
+
+	public void setOperatorStringCompare(String operatorStringCompare) {
+		this.operatorStringCompare = operatorStringCompare;
+	}
+
+	public boolean isInActive() {
+		return inActive;
+	}
+
+	public void setInActive(boolean inActive) {
+		this.inActive = inActive;
+	}
+
+	public String[] getMinusField1() {
 		return minusField1;
 	}
 
-	public void setMiusField1(String[] miusField1) {
-		this.minusField1 = miusField1;
+	public void setMinusField1(String[] minusField1) {
+		this.minusField1 = minusField1;
 	}
 
 	public String[] getPlusField() {
@@ -80,12 +135,12 @@ public class ListofRules {
 		this.targetField1 = targetField1;
 	}
 
-	public String[] getMiusField() {
-		return miusField;
+	public String[] getMinusField() {
+		return minusField;
 	}
 
-	public void setMiusField(String[] miusField) {
-		this.miusField = miusField;
+	public void setMinusField(String[] minusField) {
+		this.minusField = minusField;
 	}
 
 	public String[] getPlusField1() {
@@ -232,6 +287,22 @@ public class ListofRules {
 
 	public void setTargetValue1(String targetValue1) {
 		this.targetValue1 = targetValue1;
+	}
+
+	@Override
+	public String toString() {
+		return "ListofRules [allruleId=" + allruleId + ", targetField1Per=" + targetField1Per + ", nodeRuleType="
+				+ nodeRuleType + ", regExp1=" + regExp1 + ", condition1=" + condition1 + ", minValue=" + minValue
+				+ ", maxValue1=" + maxValue1 + ", nodeMessage=" + nodeMessage + ", minLength1=" + minLength1
+				+ ", maxLength1=" + maxLength1 + ", minDate1=" + minDate1 + ", maxDate1=" + maxDate1 + ", maximumValue="
+				+ maximumValue + ", operatorStringType=" + operatorStringType + ", operatorType1=" + operatorType1
+				+ ", operatorType=" + operatorType + ", targetValue1=" + targetValue1 + ", choice=" + choice
+				+ ", plusField1=" + Arrays.toString(plusField1) + ", targetField1=" + Arrays.toString(targetField1)
+				+ ", minusField=" + Arrays.toString(minusField) + ", minusField1=" + Arrays.toString(minusField1)
+				+ ", plusField=" + Arrays.toString(plusField) + ", inActive=" + inActive + ", fieldStringTarget="
+				+ Arrays.toString(fieldStringTarget) + ", operatorStringCompare=" + operatorStringCompare
+				+ ", requiredFieldType=" + requiredFieldType + ", requiredFieldChild="
+				+ Arrays.toString(requiredFieldChild) + "]";
 	}
 
 

@@ -2,6 +2,8 @@ package com.spring.hibernate.controller;
 
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -23,18 +25,15 @@ public class ValidatorController {
 
 	@Autowired
 	private JsonValidatorService jsonValidatorService;
-
-	@PostMapping(path = "/save", consumes = "application/json", produces = "appliation/json")
-	public ResponseEntity<String> saveRule(@RequestBody Rule rule) {
-		jsonValidatorService.saveRule(rule);
-		return ResponseEntity.status(HttpStatus.OK).build();
-	}
+	private static final Logger Log = LoggerFactory.getLogger(ValidatorController.class);
 
 	@PostMapping(path = "/saves", consumes = "application/json", produces = "appliation/json")
 	public ResponseEntity<String> saveRule(@RequestBody List<Rule> rules) {
+		Log.info("Inside ValidatorController's saveRule method, passing json: {}", rules);
 		rules.forEach(rule -> {
 			jsonValidatorService.saveRule(rule);
 		});
+		Log.info("Saved whole json in dabase and exiting from saveRule method");
 
 		return ResponseEntity.status(HttpStatus.OK).build();
 	}
@@ -42,13 +41,9 @@ public class ValidatorController {
 	@GetMapping(path = "/fetchfromDb")
 	@ResponseBody
 	public List<Rule> retrivefromDb() {
+		Log.info("Inside ValidatorController retrivefromDb medhod");
 		List<Rule> rules = jsonValidatorService.retrivefromDb();
+		Log.info("Exiting retrivefromDb method returning json response: {} ", rules);
 		return rules;
-	}
-
-	@GetMapping(path = "/test")
-	@ResponseBody
-	public String Display() {
-		return "Hello World";
 	}
 }

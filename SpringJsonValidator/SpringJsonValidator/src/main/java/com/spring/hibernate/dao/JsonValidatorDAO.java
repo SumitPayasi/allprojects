@@ -9,5 +9,6 @@ public interface JsonValidatorDAO {
 	void saveRule(Rule rule);
 
 	List<Rule> retrivefromDb();
+	/* void deleteAll(); */
 
 }
