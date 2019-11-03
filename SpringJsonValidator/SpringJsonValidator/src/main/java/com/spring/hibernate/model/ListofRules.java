@@ -4,20 +4,16 @@ import java.util.Arrays;
 import java.util.List;
 
 import javax.persistence.CascadeType;
-import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
-import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-@Entity
-@Table(name = "Allrule")
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class ListofRules {
 	@Id
@@ -67,6 +63,7 @@ public class ListofRules {
 	private String[] fieldStringTarget;
 	private String operatorStringCompare;
 	private String requiredFieldType;
+	@JsonInclude(JsonInclude.Include.NON_EMPTY)
 	private String[] requiredFieldChild;
 	
 	

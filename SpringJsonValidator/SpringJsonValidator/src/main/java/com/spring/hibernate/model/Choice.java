@@ -1,16 +1,12 @@
 package com.spring.hibernate.model;
 
-import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-@Entity
-@Table(name="Choice")
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class Choice {
 	
